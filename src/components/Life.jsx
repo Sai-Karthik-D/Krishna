@@ -6,6 +6,7 @@ import go from '../assets/go.jpg';
 import kamsa from '../assets/kamsa.jpg';
 import war from '../assets/war.jpg';
 import dep from '../assets/dep.jpg';
+import { motion } from 'framer-motion'; 
 
 const Life = () => {
   const events = [
@@ -90,7 +91,11 @@ const Life = () => {
                   <h3 className="text-lg md:text-xl font-bold text-purple-700 mb-3 flex items-center gap-2">
                     {event.title}
                   </h3>
-                  <p className="text-gray-600">{event.description}</p>
+                  <motion.p className="text-gray-600"
+                  initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1 }}
+            >{event.description}</motion.p>
                 </div>
               </div>
             </div>
