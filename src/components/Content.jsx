@@ -1,6 +1,7 @@
 // src/components/FestivalInfo.jsx
 import React from "react";
-import krishnaImg from "../assets/MainBanner.jpeg"; // ✅ Correct import
+import krishnaImg from "../assets/MainBanner.jpeg"; 
+import { motion } from 'framer-motion'; 
 
 const Content = () => {
   return (
@@ -8,16 +9,21 @@ const Content = () => {
       <div className="max-w-full mx-auto px-4 grid md:grid-cols-2 gap-8 items-center bg-blue-200 border-gray-300 rounded-lg shadow-lg p-6">
         
         {/* Image Section */}
-        <div className="relative">
+        <motion.div className="relative">
           <img
             src={krishnaImg} 
             alt="Krishna"
             className="w-full rounded-xl shadow-lg"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 2 }}
           />
-        </div>
+        </motion.div>
 
         {/* Text Section */}
-        <div>
+        <motion.div  initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 1 }}>
           <h2 className="text-3xl font-bold text-purple-700 mb-4">
             Festival Information
           </h2>
@@ -32,7 +38,7 @@ const Content = () => {
           <p className="text-gray-700 leading-relaxed">
             Let us celebrate with faith and happiness, spreading peace and harmony everywhere.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
